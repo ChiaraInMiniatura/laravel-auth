@@ -12,8 +12,9 @@
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
-                    @endif
 
+                    @endif
+                        {{-- ciao {{Auth::user()->name}} --}}
                     {{ __('You are logged in!') }}
                 </div>
             </div>
