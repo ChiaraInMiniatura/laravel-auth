@@ -72,7 +72,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        if ($post) {
+            return view('admin.posts.edit', compact('post'));
+        }
     }
 
     /**
@@ -82,9 +85,13 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $data = $request->all();
+
+        $post->update($data);
+
+        return redirect()->route('admin.posts.index', $post);
     }
 
     /**

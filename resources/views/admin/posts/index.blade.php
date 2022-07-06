@@ -22,6 +22,7 @@
            <td>{{ $post->title }}</td>
            <td>
                 <a class="btn btn-warning" href="{{ route('admin.posts.show', $post)}}">VEDI</a>
+                <a class="btn btn-warning" href="{{route('admin.posts.edit', $post)}}">MODIFICA</a>
             </td>
 
          </tr>
