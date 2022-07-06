@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts= Post::orderBy('id','desc')->get();
+        $posts= Post::orderBy('id','desc')->paginate(5);
         return view('admin.posts.index',compact('posts'));
     }
 
@@ -26,7 +26,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('admin.posts.create');
     }
 
     /**
@@ -37,7 +38,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $data = $request ->all();
+        $new_post = new Post();
+        $data['slug'] = Post::generateSlug($data['title']);
+        // dd($data);
+        $new_post->fill($data);
+        $new_post->save();
+
+        return redirect()->route('admin.posts.show', $new_post);
+
+        dd($new_post);
     }
 
     /**
@@ -48,7 +59,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post= Post::find($id);
+        return view('admin.posts.show', compact('post'));
     }
 
     /**

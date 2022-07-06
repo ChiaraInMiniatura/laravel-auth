@@ -29,7 +29,10 @@
 
                 @auth
                 <a class="navbar-brand" href="{{ route('admin.posts.index') }}">
-                    Vedi i Post!
+                    Vedi i Post
+                </a>
+                <a class="navbar-brand" href="{{ route('admin.posts.create') }}">
+                    Crea un nuovo Post
                 </a>
                 @endauth
 

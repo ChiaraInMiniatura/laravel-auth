@@ -20,14 +20,17 @@
          <tr>
            <th scope="row">{{ $post->id }}</th>
            <td>{{ $post->title }}</td>
-           <td>X</td>
+           <td>
+                <a class="btn btn-warning" href="{{ route('admin.posts.show', $post)}}">VEDI</a>
+            </td>
 
          </tr>
 
          @endforeach
 
      </tbody>
-   </table>
+    </table>
+    {{ $posts->links()}}
 
 </div>
 @endsection
