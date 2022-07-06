@@ -5,6 +5,22 @@
 
  <h1>Crea un Post</h1>
 
+ @if ( $errors->any() )
+
+ <div class="alert alert-danger" role="alert">
+
+    <ul>
+
+     @foreach ($errors->all() as $error )
+         <li>{{$error}}</li>
+     @endforeach
+
+     </ul>
+
+  </div>
+
+ @endif
+
  <form action="{{ route('admin.posts.store') }}" method="POST">
     @csrf
     <div class="mb-3">
