@@ -14,7 +14,7 @@
        </tr>
      </thead>
      <tbody>
-        {{-- ciclo non funziona perchè non parte seeder --}}
+
          @foreach ($posts as $post )
 
          <tr>

@@ -15,7 +15,7 @@ class PostTableSeeder extends Seeder
     {
         for ($i=0; $i < 10; $i++) {
             $new_post = new Post();
-            $new_post -> title = "che bella giornata";
+            $new_post -> title = $faker -> sentence();
             $new_post -> slug = Post::generateSlug($new_post->title);
             // dump($new_post->slug);
             $new_post -> content = $faker -> text();
